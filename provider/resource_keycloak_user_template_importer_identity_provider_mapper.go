@@ -37,7 +37,7 @@ func getUserTemplateImporterIdentityProviderMapperFromData(data *schema.Resource
 		return nil, handleNotFoundError(err, data)
 	}
 
-	if identityProvider.ProviderId == "facebook" || identityProvider.ProviderId == "google" {
+	if identityProvider.ProviderId == "facebook" || identityProvider.ProviderId == "google" || identityProvider.ProviderId == "apple" {
 		rec.IdentityProviderMapper = "oidc-username-idp-mapper"
 	} else {
 		rec.IdentityProviderMapper = fmt.Sprintf("%s-username-idp-mapper", identityProvider.ProviderId)
